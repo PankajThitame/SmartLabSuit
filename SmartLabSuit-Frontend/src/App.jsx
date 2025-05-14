@@ -1,19 +1,34 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import Login from './pages/Login';
 import viteLogo from '/vite.svg'
 import './App.css'
+import './global.css'
+import Header from './component/Header';
+import Navbar from './component/Navbar';
+import Footer from './component/Footer';
+import About from './pages/About';
+import Home from './pages/Home';
+import Contact from './pages/Contact';
 
-function App() {
+const App = () => {
   return (
-    <div className="container mt-5">
-      <h1 className="text-primary">Hello Bootstrap</h1>
-      <button className="btn btn-success">Click Me</button>
-      <div className="alert alert-warning mt-3">
-        This is a Bootstrap alert!
+    <BrowserRouter>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <Header />
+      <main className="flex-1">
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+      </main>
+      <Footer />
       </div>
-    </div>
+    </BrowserRouter>
   );
-}
-
-
+};
 export default App
