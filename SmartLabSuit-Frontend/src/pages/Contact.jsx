@@ -1,4 +1,3 @@
-// src/pages/Contact.jsx
 import React, { useState } from 'react';
 
 const Contact = () => {
@@ -18,11 +17,12 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form Submitted', formData);
+    // Optionally reset form or show a success message
   };
 
   return (
-    <div className="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-12">
+      <div className="max-w-lg w-full bg-white p-8 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold text-gray-800 text-center">Contact Us</h1>
 
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
@@ -76,7 +76,7 @@ const Contact = () => {
           <div>
             <button
               type="submit"
-              className="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700"
+              className="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
             >
               Send Message
             </button>

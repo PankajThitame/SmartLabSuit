@@ -21,7 +21,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className={`h-screen bg-blue-900 text-white flex flex-col ${isOpen ? 'w-64' : 'w-20'} transition-all duration-300`}>
+    <div className={`left-0 h-screen bg-blue-900 text-white flex flex-col ${isOpen ? 'w-64' : 'w-20'} transition-all duration-300`}>
       <div className="flex items-center justify-between p-4">
         <span className="text-xl font-bold">{isOpen ? 'Research Center' : 'RC'}</span>
         <button onClick={toggleSidebar} className="text-white focus:outline-none">
