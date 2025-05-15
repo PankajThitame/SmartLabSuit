@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 w-full h-16 bg-gray-900 text-white z-50 shadow-md">
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-        <div className="text-xl font-bold">MyReactApp</div>
+        <div className="text-xl font-bold">SmartLabSuit</div>
         
         {/* Desktop nav */}
         <nav className="hidden md:flex space-x-6">
