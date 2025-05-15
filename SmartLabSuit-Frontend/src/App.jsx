@@ -1,34 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
-import Login from './pages/Login';
-import viteLogo from '/vite.svg'
-import './App.css'
-import './global.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import './App.css';
+import './global.css';
+
 import Header from './component/Header';
-import Navbar from './component/Navbar';
 import Footer from './component/Footer';
-import About from './pages/About';
+
+import Login from './pages/Login';
 import Home from './pages/Home';
+import About from './pages/About';
 import Contact from './pages/Contact';
 
 const App = () => {
   return (
-    <BrowserRouter>
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <Header />
-      <main className="flex-1">
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-      </main>
-      <Footer />
+    <Router>
+      <div className="flex items-center min-h-screen">
+        {/* Header (if fixed/sticky, adjust with padding in <main>) */}
+        <Header />
+
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+
+        <Footer />
       </div>
-    </BrowserRouter>
+    </Router>
   );
 };
-export default App
+
+export default App;
