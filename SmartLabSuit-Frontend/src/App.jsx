@@ -18,6 +18,7 @@ import Polio from './pages/Polio';
 import Nipah from './pages/Nipah';
 import Hepatitis from './pages/Hepatitis';
 import Influenza from './pages/Influenza';
+import Signup from './component/Signup';
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
       <Routes>
         {/* Login Page without Sidebar */}
         <Route path="/" element={<Login />} />
+        <Route path="/sign-up" element={<Signup />} />
 
         {/* Pages with Sidebar, Header, Footer */}
         <Route element={<SidebarLayout />}>
