@@ -12,7 +12,7 @@ const Header = () => {
         
         {/* Desktop nav */}
         <nav className="hidden md:flex space-x-6">
-          <a href="/" className="hover:text-blue-400">Home</a>
+          <a href="/home" className="hover:text-blue-400">Home</a>
           <a href="/features" className="hover:text-blue-400">Features</a>
           <a href="/about" className="hover:text-blue-400">About</a>
           <a href="/contact" className="hover:text-blue-400">Contact</a>

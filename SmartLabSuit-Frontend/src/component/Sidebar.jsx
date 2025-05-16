@@ -1,12 +1,7 @@
-import { useState } from 'react';
 import { Home, Users, FileText, BarChart2, Settings, LogOut, MessageSquare, Database, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
-
-  const toggleSidebar = () => setIsOpen(!isOpen);
-
+const Sidebar = ({ isOpen, toggleSidebar }) => {
   const menuItems = [
     { label: 'Dashboard', icon: <Home />, path: '/dashboard' },
     { label: 'Departments', icon: <Layers />, path: '/departments' },
@@ -21,7 +16,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className={`left-0 h-screen bg-blue-900 text-white flex flex-col ${isOpen ? 'w-64' : 'w-20'} transition-all duration-300`}>
+    <div className={`h-screen bg-blue-900 text-white flex flex-col ${isOpen ? 'w-64' : 'w-20'} transition-all duration-300`}>
       <div className="flex items-center justify-between p-4">
         <span className="text-xl font-bold">{isOpen ? 'Research Center' : 'RC'}</span>
         <button onClick={toggleSidebar} className="text-white focus:outline-none">
@@ -34,17 +29,13 @@ const Sidebar = () => {
           <Link
             key={index}
             to={item.path}
-            className="flex items-center gap-4 px-4 py-3 hover:bg-blue-700 transition-all"
+            className="flex items-center gap-4 px-4 py-3 hover:bg-white transition-all"
           >
             {item.icon}
             {isOpen && <span>{item.label}</span>}
           </Link>
         ))}
       </nav>
-
-      <div className="p-4 text-center text-xs">
-        {isOpen && "© 2025 Research Portal"}
-      </div>
     </div>
   );
 };

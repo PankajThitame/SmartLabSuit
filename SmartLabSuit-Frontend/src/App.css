@@ -1,9 +1,10 @@
 /* global.css */
 
-#root {
-  display: flex;
-  flex-direction: column;
-}
+/* #root {
+  /* display: flex;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+/* } */ 
 
 /* Full app layout */
 .app-container {
