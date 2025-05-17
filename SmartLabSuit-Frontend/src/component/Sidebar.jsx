@@ -24,7 +24,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         </button>
       </div>
 
-      <nav className="flex-1 overflow-y-auto hide-scrollbar pb-24">
+      <nav className="flex-1 overflow-y-auto hide-scrollbar mb-16">
         {menuItems.map((item, index) => (
           <Link
             key={index}
