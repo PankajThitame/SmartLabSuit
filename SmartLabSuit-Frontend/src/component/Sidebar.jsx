@@ -16,20 +16,20 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   ];
 
   return (
-    <div className={`h-screen bg-blue-900 text-white flex flex-col ${isOpen ? 'w-64' : 'w-20'} transition-all duration-300`}>
-      <div className="flex items-center justify-between p-4">
+    <div className={`h-full bg-blue-900 text-white flex flex-col ${isOpen ? 'w-64' : 'w-20'} transition-all duration-300`}>
+      <div className="flex items-center justify-between p-4 sticky top-0 bg-blue-900 z-10">
         <span className="text-xl font-bold">{isOpen ? 'Research Center' : 'RC'}</span>
         <button onClick={toggleSidebar} className="text-white focus:outline-none">
           ☰
         </button>
       </div>
 
-      <nav className="flex-1">
+      <nav className="flex-1 overflow-y-auto hide-scrollbar pb-24">
         {menuItems.map((item, index) => (
           <Link
             key={index}
             to={item.path}
-            className="flex items-center gap-4 px-4 py-3 hover:bg-white transition-all"
+            className="flex items-center gap-4 px-4 py-3 hover:bg-white hover:text-blue-900 transition-all"
           >
             {item.icon}
             {isOpen && <span>{item.label}</span>}

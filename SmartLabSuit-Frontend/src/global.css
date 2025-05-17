@@ -1,11 +1,9 @@
-/* src/global.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* Global Reset */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -24,7 +22,7 @@ a {
 }
 
 a:hover {
-  color: #005fa3;
+  color: #fdfdfe;
 }
 
 /* Utility Classes */
@@ -36,4 +34,28 @@ a:hover {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
+}
+
+/* global.css */
+
+/* For Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 12px;                /* scrollbar width */
+  background-color: #f0f0f0; /* track background color */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* track background */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888888; /* thumb color */
+  border-radius: 6px;        /* rounded corners */
+  border: 3px solid #f0f0f0; /* space around thumb */
+}
+
+/* Firefox */
+* {
+  scrollbar-width:thin;          /* or thin */
+  scrollbar-color: #888888 #f0f0f0; /* thumb color, track color */
 }
