@@ -45,8 +45,9 @@
 
 		<dependency>
 			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<scope>runtime</scope>
+			<artifactId>mysql-connector-j</artifactId>  <!-- Fixed the MySQL
+			dependency -->
+			<version>8.0.33</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
