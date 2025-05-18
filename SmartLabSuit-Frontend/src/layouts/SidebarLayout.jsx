@@ -24,7 +24,15 @@ const SidebarLayout = () => {
         style={{ marginLeft: isSidebarOpen ? '16rem' : '5rem' }}
       >
         <Header />
+<<<<<<< HEAD
+<<<<<<< HEAD:SmartLabSuit-Frontend/src/layouts/SidebarLayout.jsx
         <main className="flex-1 bg-gray-50 mt-16 p-4 overflow-y-auto !mb-16">
+=======
+        <main className="flex-1 bg-gray-50 p-4 overflow-y-auto !pb-24">
+>>>>>>> 660cc02 (saturday):src/layouts/SidebarLayout.jsx
+=======
+        <main className="flex-1 bg-gray-50 mt-16 p-4 overflow-y-auto !mb-16">
+>>>>>>> 4baf7d7 (sunday frontend)
           <Outlet />
         </main>
         <Footer />

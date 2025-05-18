@@ -1,19 +1,29 @@
 import { Home, Users, FileText, BarChart2, Settings, LogOut, MessageSquare, Database, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const Sidebar = ({ isOpen, toggleSidebar }) => {
-  const menuItems = [
-    { label: 'Dashboard', icon: <Home />, path: '/dashboard' },
-    { label: 'Departments', icon: <Layers />, path: '/departments' },
-    { label: 'Patient Records', icon: <FileText />, path: '/patients' },
-    { label: 'Data Entry', icon: <Database />, path: '/data-entry' },
-    { label: 'Analytics', icon: <BarChart2 />, path: '/analytics' },
-    { label: 'Reports', icon: <FileText />, path: '/reports' },
-    { label: 'User Management', icon: <Users />, path: '/users' },
-    { label: 'Messages', icon: <MessageSquare />, path: '/messages' },
-    { label: 'Settings', icon: <Settings />, path: '/settings' },
-    { label: 'Logout', icon: <LogOut />, path: '/logout' },
-  ];
+const Sidebar = ({ isOpen, toggleSidebar, role }) => {
+  const adminMenu = [
+  { label: 'Dashboard', icon: <Home />, path: '/dashboard' },
+  { label: 'Departments', icon: <Layers />, path: '/departments' },
+  { label: 'Patient Records', icon: <FileText />, path: '/patients' },
+  { label: 'Analytics', icon: <BarChart2 />, path: '/analytics' },
+  { label: 'Reports', icon: <FileText />, path: '/reports' },
+  { label: 'User Management', icon: <Users />, path: '/users' },
+  { label: 'Messages', icon: <MessageSquare />, path: '/messages' },
+  // { label: 'Settings', icon: <Settings />, path: '/settings' },
+  { label: 'Logout', icon: <LogOut />, path: '/logout' },
+];
+
+  const userMenu = [
+  { label: 'Dashboard', icon: <Home />, path: '/user-dashboard' },
+  { label: 'Data Entry', icon: <Database />, path: '/data-entry' },
+  { label: 'Reports', icon: <FileText />, path: '/reports' },
+  { label: 'Messages', icon: <MessageSquare />, path: '/messages' },
+  // { label: 'Settings', icon: <Settings />, path: '/settings' },
+  { label: 'Logout', icon: <LogOut />, path: '/logout' },
+];
+
+  const menuItems = role === 'admin' ? adminMenu : userMenu;
 
   return (
     <div className={`h-full bg-blue-900 text-white flex flex-col ${isOpen ? 'w-64' : 'w-20'} transition-all duration-300`}>
@@ -24,7 +34,15 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         </button>
       </div>
 
+<<<<<<< HEAD
+<<<<<<< HEAD:SmartLabSuit-Frontend/src/component/Sidebar.jsx
       <nav className="flex-1 overflow-y-auto hide-scrollbar mb-16">
+=======
+      <nav className="flex-1 overflow-y-auto hide-scrollbar pb-24">
+>>>>>>> 660cc02 (saturday):src/component/Sidebar.jsx
+=======
+      <nav className="flex-1 overflow-y-auto hide-scrollbar mb-16">
+>>>>>>> 4baf7d7 (sunday frontend)
         {menuItems.map((item, index) => (
           <Link
             key={index}

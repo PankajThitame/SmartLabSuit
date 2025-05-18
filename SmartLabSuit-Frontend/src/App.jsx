@@ -19,6 +19,8 @@ import Nipah from './pages/Nipah';
 import Hepatitis from './pages/Hepatitis';
 import Influenza from './pages/Influenza';
 import Signup from './component/Signup';
+import DataEntry from './navigation_layout/DataEntry';
+import UserDashboard from './component/UserDashboard';
 
 
 const App = () => {
@@ -26,7 +28,7 @@ const App = () => {
     <Router>
       <Routes>
         {/* Login Page without Sidebar */}
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<Signup />} />
 
         {/* Pages with Sidebar, Header, Footer */}
@@ -36,6 +38,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/features" element={<Features />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/user-dashboard" element={<UserDashboard />} />
           <Route path="/departments" element={<Departments />} />
           <Route path="/departments/dengue" element={<Dengue />} />
           <Route path="/departments/chikungunya" element={<Chikungunya />} />
@@ -44,6 +47,8 @@ const App = () => {
           <Route path="/departments/nipah" element={<Nipah />} />
           <Route path="/departments/hepatitis" element={<Hepatitis />} />
           <Route path="/departments/influenza" element={<Influenza />} />
+          <Route path="/data-entry" element={<DataEntry />} />
+          <Route path="/data-entry/dengue" element={<Dengue />} />
         </Route>
       </Routes>
     </Router>

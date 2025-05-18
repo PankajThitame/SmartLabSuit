@@ -1,6 +1,5 @@
 // src/pages/Signup.jsx
 import React, { useState } from 'react';
-import signupImage from '../assets/signup.jpeg';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -26,10 +25,10 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-white">
+    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-blue-100 ">
       {/* Form */}
-      <div className="w-full md:w-1/2 p-6 max-w-md">
-        <h2 className="text-2xl font-semibold mb-6 text-blue-700">Create Account</h2>
+      <div className="w-full bg-white shadow-lg rounded md:w-1/2 p-6 max-w-md">
+        <h2 className="text-3xl font-semibold mb-6 text-blue-700">Register</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
@@ -86,14 +85,7 @@ const Signup = () => {
       </div>
 
       {/* Image */}
-      <div className="hidden md:flex w-full md:w-1/2 h-full items-center justify-center bg-blue-50">
-        <img
-          src={signupImage}
-          alt="Signup Illustration"
-          className="w-3/4 max-w-md object-contain"
-        />
       </div>
-    </div>
   );
 };
 
