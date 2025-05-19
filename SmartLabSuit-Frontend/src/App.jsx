@@ -18,7 +18,8 @@ import Polio from './pages/Polio';
 import Nipah from './pages/Nipah';
 import Hepatitis from './pages/Hepatitis';
 import Influenza from './pages/Influenza';
-import Signup from './component/Signup';
+import Signup from './component/SignupStep1';
+import Signup1 from './component/signupStep2';
 import DataEntry from './navigation_layout/DataEntry';
 import UserDashboard from './component/UserDashboard';
 
@@ -30,6 +31,7 @@ const App = () => {
         {/* Login Page without Sidebar */}
         <Route path="/" element={<Login />} />
         <Route path="/sign-up" element={<Signup />} />
+        <Route path="/signup-step2" element={<Signup1 />} />
 
         {/* Pages with Sidebar, Header, Footer */}
         <Route element={<SidebarLayout />}>
