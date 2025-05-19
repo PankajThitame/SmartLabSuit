@@ -26,7 +26,7 @@ const SidebarLayout = () => {
         style={{ marginLeft: isSidebarOpen ? '16rem' : '5rem' }}
       >
         <Header />
-        <main className="flex-1 bg-gray-50 mt-16 p-4 overflow-y-auto !mb-16">
+        <main className="flex-1 bg-gray-50 mt-16 p-4 overflow-y-auto">
           <Outlet />
         </main>
       </div>
