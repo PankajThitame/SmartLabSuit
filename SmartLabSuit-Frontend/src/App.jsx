@@ -28,7 +28,7 @@ const App = () => {
     <Router>
       <Routes>
         {/* Login Page without Sidebar */}
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/sign-up" element={<Signup />} />
 
         {/* Pages with Sidebar, Header, Footer */}

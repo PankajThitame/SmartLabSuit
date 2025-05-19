@@ -29,27 +29,26 @@ public class SecurityConfig {
 
     // SecurityFilterChain replaces WebSecurityConfigurerAdapter in newer Spring Boot versions
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-            .csrf(csrf -> csrf.disable()) // Disable CSRF for simplicity; enable in production with proper config
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/admin/**").hasRole("ADMIN")      // Only ADMIN role can access /admin/**
-                .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN") // USER or ADMIN role for /user/**
-                .requestMatchers("/", "/login", "/register", "/public/**").permitAll() // Public access to these paths
-                .anyRequest().authenticated()  // All other requests require authentication
-            )
-            .formLogin(form -> form
-                .loginPage("/login")        // Your custom login page URL (create a controller and page)
-                .defaultSuccessUrl("/", true) // Redirect after successful login
-                .permitAll()
-            )
-            .logout(logout -> logout
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/login?logout")
-                .permitAll()
-            );
+public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    http
+        .csrf(csrf -> csrf.disable())
+        .cors() // ⬅️ Important for CORS
+        .and()
+        .authorizeHttpRequests(auth -> auth
+    .requestMatchers("/api/users/login", "/register", "/api/public/**").permitAll()
+    .anyRequest().authenticated()
+)
+.formLogin(form -> form.disable())
 
-        return http.build();
-    }
+        .formLogin(form -> form.disable()) // ⬅️ DISABLE form login to avoid redirect
+        .logout(logout -> logout
+            .logoutUrl("/api/users/logout")
+            .logoutSuccessUrl("/api/users/login?logout")
+            .permitAll()
+        );
+
+    return http.build();
+}
+
 }
 

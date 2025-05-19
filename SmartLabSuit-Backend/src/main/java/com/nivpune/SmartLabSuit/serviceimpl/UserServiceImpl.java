@@ -2,6 +2,7 @@ package com.nivpune.SmartLabSuit.serviceimpl;
 
 import com.nivpune.SmartLabSuit.paylods.UserDTO;
 import com.nivpune.SmartLabSuit.entity.User;
+import com.nivpune.SmartLabSuit.repository.LoginResponse;
 import com.nivpune.SmartLabSuit.repository.UserRepository;
 import com.nivpune.SmartLabSuit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,16 @@ public class UserServiceImpl implements UserService {
         user.setRole(dto.getRole());
         user.setUserType(dto.getUserType());
         return userRepository.save(user);
+    }
+
+     @Override
+    public LoginResponse login(String username, String password) {
+        Optional<User> optionalUser = userRepository.findByEmployeeIdAndPassword(username, password);
+        if (optionalUser.isPresent()) {
+            return new LoginResponse(optionalUser.get());
+        } else {
+            throw new RuntimeException("Invalid username or password");
+        }
     }
 
     @Override

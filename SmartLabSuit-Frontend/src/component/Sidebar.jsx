@@ -27,7 +27,7 @@ const Sidebar = ({ isOpen, toggleSidebar, role }) => {
     { label: 'Logout', icon: <LogOut />, path: '/logout' },
   ];
 
-  const menuItems = role === 'admin' ? adminMenu : userMenu;
+  const menuItems = role === 'ROLE_ADMIN' ? adminMenu : userMenu;
 
   return (
     <div className={`h-full bg-blue-900 text-white flex flex-col ${isOpen ? 'w-64' : 'w-20'} transition-all duration-300`}>
