@@ -11,7 +11,7 @@ const SignupStep1 = () => {
     mobileNumber: '',
     name: '',
     role: 'ROLE_USER',
-    employmentType: '',
+    userType: '',
   });
 
   const departments = ['Dengue', 'Influenza', 'Chikungunya', 'Enteric Virus', 'Hepatitis', 'Nipah', 'Polio'];

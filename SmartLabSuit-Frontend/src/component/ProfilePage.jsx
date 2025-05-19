@@ -1,76 +1,44 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 
 const ProfilePage = () => {
-  const { employeeId } = useParams(); // expects route like /profile/:employeeId
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await axios.get(`http://localhost:9090/api/users/${employeeId}`);
-        setUser(response.data);
-      } catch (error) {
-        console.error("Failed to fetch user", error);
-      }
-    };
-    fetchUser();
-  }, [employeeId]);
-
-  if (!user) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <p className="text-lg text-gray-500">Loading profile...</p>
-      </div>
-    );
-  }
+  const user = JSON.parse(localStorage.getItem('user')) || {};
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-6">
-      <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-xl p-8">
-        <div className="flex items-center space-x-6 mb-6">
-          <img
-            className="w-24 h-24 rounded-full border-4 border-blue-500 object-cover"
-            src={`https://ui-avatars.com/api/?name=${user.name}&background=0D8ABC&color=fff`}
-            alt="User Avatar"
-          />
-          <div>
-            <h2 className="text-2xl font-bold text-gray-800">{user.name}</h2>
-            <p className="text-gray-600">@{user.username}</p>
-            <p className="text-sm text-gray-500">Employee ID: {user.employeeId}</p>
-          </div>
+    <div className="min-h-screen bg-gray-100 py-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto bg-white shadow-md rounded-xl overflow-hidden">
+        <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-6">
+          <h2 className="text-3xl font-bold text-white">Your Profile</h2>
         </div>
+        <div className="p-6 space-y-4">
+          <div className="flex items-center space-x-4">
+            <div className="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center text-2xl font-semibold text-white">
+              {user.name?.charAt(0).toUpperCase() || 'U'}
+            </div>
+            <div>
+              <h3 className="text-2xl font-semibold text-gray-800">{user.name || 'Unknown User'}</h3>
+              <p className="text-sm text-gray-500">{user.role || 'ROLE_USER'}</p>
+            </div>
+          </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-gray-700">
-          <div>
-            <p className="font-semibold">Email:</p>
-            <p>{user.email}</p>
-          </div>
-          <div>
-            <p className="font-semibold">Mobile Number:</p>
-            <p>{user.mobileNumber}</p>
-          </div>
-          <div>
-            <p className="font-semibold">Department:</p>
-            <p>{user.department}</p>
-          </div>
-          <div>
-            <p className="font-semibold">User Type:</p>
-            <p>{user.userType}</p>
-          </div>
-          <div>
-            <p className="font-semibold">Role:</p>
-            <p>{user.role}</p>
-          </div>
-          <div>
-            <p className="font-semibold">Account Enabled:</p>
-            <p>{user.enabled ? "Yes" : "No"}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <ProfileField label="Email" value={user.email} />
+            <ProfileField label="Mobile" value={user.mobileNumber} />
+            <ProfileField label="Department" value={user.department} />
+            <ProfileField label="User Type" value={user.userType} />
+            <ProfileField label="Employee ID" value={user.employeeId} />
+            <ProfileField label="Username" value={user.username} />
           </div>
         </div>
       </div>
     </div>
   );
 };
+
+const ProfileField = ({ label, value }) => (
+  <div className="flex flex-col">
+    <span className="text-sm font-medium text-gray-600">{label}</span>
+    <span className="text-base text-gray-900">{value || 'N/A'}</span>
+  </div>
+);
 
 export default ProfilePage;
