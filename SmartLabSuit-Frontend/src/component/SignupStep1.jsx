@@ -10,6 +10,7 @@ const SignupStep1 = () => {
     employeeId: '',
     mobileNumber: '',
     name: '',
+    role: 'ROLE_USER',
     employmentType: '',
   });
 

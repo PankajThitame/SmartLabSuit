@@ -44,7 +44,7 @@ const SignupStep2 = () => {
       if (response.ok) {
         alert("User registered successfully!");
         localStorage.removeItem("signupStep1");
-        navigate("/login");
+        navigate("/");
       } else {
         alert("Registration failed. Please try again.");
       }

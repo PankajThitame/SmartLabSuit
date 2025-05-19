@@ -35,7 +35,7 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         .cors() // ⬅️ Important for CORS
         .and()
         .authorizeHttpRequests(auth -> auth
-    .requestMatchers("/api/users/login", "/register", "/api/public/**").permitAll()
+    .requestMatchers("/api/users/*", "/api/public/**").permitAll()
     .anyRequest().authenticated()
 )
 .formLogin(form -> form.disable())

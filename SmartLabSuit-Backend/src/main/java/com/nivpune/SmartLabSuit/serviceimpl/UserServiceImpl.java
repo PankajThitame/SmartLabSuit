@@ -6,6 +6,7 @@ import com.nivpune.SmartLabSuit.repository.LoginResponse;
 import com.nivpune.SmartLabSuit.repository.UserRepository;
 import com.nivpune.SmartLabSuit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -15,6 +16,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public User createUser(UserDTO dto) {
@@ -26,6 +30,9 @@ public class UserServiceImpl implements UserService {
         user.setDepartment(dto.getDepartment());
         user.setRole(dto.getRole());
         user.setUserType(dto.getUserType());
+        user.setUsername(dto.getUsername());
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));        user.setEnabled(true); 
+
         return userRepository.save(user);
     }
 

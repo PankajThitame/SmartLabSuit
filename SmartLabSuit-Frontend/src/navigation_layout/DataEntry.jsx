@@ -7,14 +7,26 @@ const DataEntry = () => {
 
   useEffect(() => {
     switch (user.department) {
-      case 'dengue':
+      case 'Dengue':
         navigate('/data-entry/dengue');
         break;
-      case 'influenza':
+      case 'Influenza':
         navigate('/data-entry/influenza');
         break;
-      case 'polio':
+      case 'Polio':
         navigate('/data-entry/polio');
+        break;
+      case 'Nipah':
+        navigate('/data-entry/nipah');
+        break;
+      case 'Hepatitis':
+        navigate('/data-entry/hepatitis');
+        break;
+      case 'Chikungunya':
+        navigate('/data-entry/chikungunya');
+        break;
+      case 'Enteric Virus':
+        navigate('/data-entry/entric-virus');
         break;
       // Add other departments here
       default:

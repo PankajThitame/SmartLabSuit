@@ -1,6 +1,5 @@
 package com.nivpune.SmartLabSuit.paylods;
 
-import jakarta.persistence.Column;
 import lombok.*;
 
 @Getter @Setter
